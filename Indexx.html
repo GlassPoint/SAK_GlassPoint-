@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SAK_GlassPoint | Pure Glass Solutions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #061018;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: rgba(3, 12, 18, 0.95);
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1d5266;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #7ee8ff;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #66ddff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 7%;
+            background:
+                linear-gradient(rgba(2,15,23,.75), rgba(2,15,23,.9)),
+                radial-gradient(circle at center, #15556b, #061018 65%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #71e5ff;
+        }
+
+        .hero p {
+            font-size: 21px;
+            color: #d5edf3;
+            margin-bottom: 30px;
+        }
+
+        .tagline {
+            color: #7ee8ff;
+            letter-spacing: 4px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0eb9df;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 7px;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #087e9b;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #71e5ff;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #9fc1cb;
+        }
+
+        /* SERVICES */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #0b202a;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #194858;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #5ddfff;
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #75e6ff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #b9d0d6;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #081820;
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #c2d9df;
+            font-size: 18px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-box {
+            height: 230px;
+            background: linear-gradient(135deg, #173d4b, #07131a);
+            border: 1px solid #235768;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #7ee8ff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* WHY US */
+        .why {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .why-box {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .why-box strong {
+            display: block;
+            font-size: 21px;
+            color: #71e5ff;
+            margin-bottom: 8px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #081820;
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px;
+            color: #c4dbe0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #030a0e;
+            text-align: center;
+            padding: 30px;
+            color: #8faab2;
+        }
+
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            z-index: 2000;
+            box-shadow: 0 5px 20px rgba(0,0,0,.4);
+        }
+
+        /* MOBILE */
+        @media(max-width: 700px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+    <div class="logo">
+        SAK_<span>GlassPoint</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="tagline">
+            PURE GLASS SOLUTIONS
+        </div>
+
+        <h1>
+            SAK_<span>GlassPoint</span>
+        </h1>
+
+        <p>
+            Quality glass solutions designed to bring
+            elegance, strength and modern vision to your
+            home, office and commercial space.
+        </p>
+
+        <a class="btn"
+           href="https://wa.me/255789520753">
+            WhatsApp Us
+        </a>
+
+        <a class="btn btn-outline"
+           href="#services">
+            Explore Services
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+    <div class="section-title">
+
+        <h2>Our Glass Solutions</h2>
+
+        <p>
+            Quality glass for modern spaces
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+        <div class="card">
+
+            <div class="icon">🪟</div>
+
+            <h3>Glass Windows</h3>
+
+            <p>
+                Modern and elegant glass windows
+                for homes and commercial buildings.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🚪</div>
+
+            <h3>Glass Doors</h3>
+
+            <p>
+                Stylish and durable glass doors
+                designed for modern environments.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🏢</div>
+
+            <h3>Office Partitions</h3>
+
+            <p>
+                Professional glass partitions
+                for modern offices and businesses.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🚿</div>
+
+            <h3>Shower Glass</h3>
+
+            <p>
+                Elegant shower glass solutions
+                for modern bathrooms.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🪞</div>
+
+            <h3>Mirrors</h3>
+
+            <p>
+                High-quality mirrors for homes,
+                shops, hotels and offices.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🏠</div>
+
+            <h3>Custom Glass</h3>
+
+            <p>
+                Glass solutions designed according
+                to your measurements and requirements.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="section-title">
+
+        <h2>About SAK_GlassPoint</h2>
+
+        <p>QUALITY GLASS • PROFESSIONAL SERVICE</p>
+
+    </div>
+
+
+    <div class="about-box">
+
+        <p>
+            SAK_GlassPoint provides quality glass solutions
+            for residential, commercial and office spaces.
+            Our focus is on quality, durability, modern
+            design and customer satisfaction.
+        </p>
+
+        <br>
+
+        <p>
+            From glass doors and windows to office partitions,
+            shower enclosures and custom glass solutions,
+            we help transform ordinary spaces into elegant
+            modern environments.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+
+    <div class="section-title">
+
+        <h2>Our Projects</h2>
+
+        <p>
+            Explore our glass work
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <div class="gallery-box">
+            GLASS DOORS
+        </div>
+
+        <div class="gallery-box">
+            OFFICE PARTITIONS
+        </div>
+
+        <div class="gallery-box">
+            SHOWER GLASS
+        </div>
+
+        <div class="gallery-box">
+            GLASS WINDOWS
+        </div>
+
+        <div class="gallery-box">
+            MODERN MIRRORS
+        </div>
+
+        <div class="gallery-box">
+            CUSTOM GLASS
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY US -->
+<section>
+
+    <div class="section-title">
+
+        <h2>Why Choose Us?</h2>
+
+    </div>
+
+
+    <div class="why">
+
+        <div class="why-box">
+
+            <strong>QUALITY</strong>
+
+            <p>
+                We focus on quality glass solutions.
+            </p>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <strong>DURABILITY</strong>
+
+            <p>
+                Strong and reliable glass solutions.
+            </p>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <strong>MODERN DESIGN</strong>
+
+            <p>
+                Elegant designs for modern spaces.
+            </p>
+
+        </div>
+
+
+        <div class="why-box">
+
+            <strong>PROFESSIONAL SERVICE</strong>
+
+            <p>
+                Customer-focused service from inquiry
+                to installation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="section-title">
+
+        <h2>Contact SAK_GlassPoint</h2>
+
+        <p>
+            Let's discuss your glass project.
+        </p>
+
+    </div>
+
+
+    <p>📞 Phone: 0789 520 753</p>
+
+    <p>💬 WhatsApp: Available</p>
+
+    <p>📍 Dar es Salaam, Tanzania</p>
+
+
+    <a class="btn"
+       href="https://wa.me/255789520753">
+        Request a Quote
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 SAK_GlassPoint
+    </p>
+
+    <p>
+        PURE GLASS SOLUTIONS • QUALITY GLASS
+    </p>
+
+</footer>
+
+
+<!-- WHATSAPP BUTTON -->
+<a class="whatsapp"
+   href="https://wa.me/255789520753"
+   target="_blank">
+
+    ☎
+
+</a>
+
+
+</body>
+</html>
